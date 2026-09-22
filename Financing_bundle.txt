@@ -1,0 +1,25 @@
+HS=()=>(p.useEffect(()=>{document.title="Financing Options | Spatium Wellness - Flexible Payment Plans";const e=document.querySelector('meta[name="description"]');e&&e.setAttribute("content","Explore flexible financing options at Spatium Wellness. We offer accessible payment plans through Cherry for our urgent care, primary care, and wellness services in Marietta.");const t=document.createElement("script");return t.innerHTML=`
+            (function (w, d, s, o, f) {
+                w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
+                var js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+                js.id = o; js.src = f; js.async = 1;
+                fjs.parentNode.insertBefore(js, fjs);
+            })(window, document, "script", "_hw", 'https://files.withcherry.com/widgets/widget.js');
+            
+            _hw(
+                "init",
+                {
+                    debug: false,
+                    variables: {
+                        slug: 'spatium-urgent-care',
+                        name: "Spatium Urgent Care",
+                    },
+                    styles: {
+                        primaryColor: '#10804a',
+                        secondaryColor: '#10804a10',
+                        fontFamily: 'Open Sans',
+                    },
+                },
+                ["all", "hero", "howitworks", "testimony", "faq", "calculator"]
+            );
+        `,document.body.appendChild(t),()=>{const n=document.getElementById("all");n&&(n.innerHTML=""),document.body.removeChild(t)}},[]),i.jsx("main",{className:"min-h-screen pt-24 pb-12 bg-white",children:i.jsx("div",{className:"container mx-auto px-6",children:i.jsx("div",{id:"all"})})})),VS=[{question:"How do you test for coronavirus?",answer:i.jsxs("div",{className:"space-y-4",children:[i.jsx("p",{children:"Spatium Urgent Care offers two types of COVID-19 testing:"}),i.jsx("p",{className:"font-semibold text-foreground",children:"COVID-19 Virus Testing"}),i.jsx("p",{children:"We offer both PCR and Rapid (antigen) COVID-19 virus testing services at Spatium Urgent Care. The diagnostic test for an active COVID-19 infection involves an anterior nasal swab, which is a method of collecting a sample of nasal secretions from the back of your nose."}),i.jsx("p",{children:"For a PCR test, when your test is complete your sample will be sent to a certified lab, where it will be analyzed for COVID-19. We will provide your result as soon as it is available. If your result is positive, we will contact you by phone to discuss it; if your result is negative, we will send you an email notification."})]})},{question:"How long will it take to receive test results?",answer:i.jsxs("div",{className:"space-y-4",children:[i.jsx("p",{children:"COVID-19 PCR virus test results may take up to 7 business days to be returned to us from the lab. Rapid (antigen) test results are returned same-day. Due to the surge of COVID-19 cases at this time, test results may take longer than expected. We appreciate your patience and understanding, as the delays in test result turnaround time are directly impacted by the high volume of testing for both local and national labs. Please know we are working through alternatives to get results as quickly as possible for our patients during these challenging times. We are committed to providing our patients with their COVID-19 test results as quickly as possible."}),i.jsx("p",{children:"Spatium Urgent Care also offers COVID-19 antibody testing, which can detect certain proteins (IgM and IgG antibodies) that are produced by the body's immune system in response to a COVID-19 exposure. A positive test result may indicate a past or current COVID-19 infection, regardless of whether the infection produced noticeable symptoms."}),i.jsx("p",{children:"COVID-19 antibody testing involves a blood draw, which can be performed during an in-person visit to any of our urgent care center locations. No prior authorization or appointment is required."})]})},{question:"What does a positive COVID-19 antibody test result mean?",answer:"The presence of COVID-19 antibodies could suggest immunity to the novel coronavirus. However, researchers have not yet determined whether a person who has recovered from COVID-19 is fully protected against future infections."}],

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #007045;
+  --color-primary-light: #26a069;
+  --color-primary-dark: #005836;
+  --color-foreground: #273746;
+  --color-muted-foreground: #64748b;
+  --color-muted: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-destructive: #e11d48;
+  --color-destructive-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-card: #ffffff;
+  --color-card-foreground: #273746;
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #ffffff;
+  --color-secondary: #005836;
+  --color-secondary-light: #26a069;
+  --color-secondary-dark: #007045;
+  --color-input: #e2e8f0;
+  --color-ring: #22c55e;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    color: var(--color-foreground, #273746);
+    background-color: var(--color-background, #ffffff);
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, rgba(0, 112, 69, 0.05) 0%, rgba(38, 160, 105, 0.08) 100%);
+}
+
+.bg-gradient-wellness {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #007045 0%, #26a069 100%);
+}
+
+.shadow-elegant {
+  box-shadow: 0 20px 40px -10px rgba(39, 55, 70, 0.08);
+}
+
+.shadow-primary {
+  box-shadow: 0 10px 30px -5px rgba(0, 112, 69, 0.3);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Spatium Urgent Care",
+  "description": "Fast, quality, and affordable urgent care, primary care, aesthetics, and wellness services in Marietta, GA. Walk-ins welcome.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
