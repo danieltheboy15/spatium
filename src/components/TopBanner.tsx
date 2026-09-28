@@ -4,19 +4,19 @@ import { useLocation } from "react-router-dom";
 const BANNER_MAPPING: Record<string, { text: string; href: string }> = {
   "/": {
     text: "Click here to take advantage of $99/Monthly unlimited care membership!",
-    href: "https://www.clockwisemd.com/visit/15645",
+    href: "https://app.clientforge-ai.com/spatium-book",
   },
   "/body-sculpting": {
     text: "Click here to take advantage of 50% off EMSCULPT NEO session now!",
-    href: "https://www.clockwisemd.com/visit/15645",
+    href: "https://app.clientforge-ai.com/spatium-book",
   },
   "/weight-loss-program-spatium": {
     text: "Click here to take advantage of $199 promotional offer on GLP-1!",
-    href: "https://www.clockwisemd.com/visit/15645",
+    href: "https://app.clientforge-ai.com/spatium-book",
   },
   "/dawn-primary-care-service": {
     text: "Click here to take advantage of $99/Monthly unlimited care membership!",
-    href: "https://www.clockwisemd.com/visit/15645",
+    href: "https://app.clientforge-ai.com/spatium-book",
   },
 };
 

@@ -30,7 +30,7 @@ export const WeightLossPage: React.FC = () => {
   const [openPlanAccordion, setOpenPlanAccordion] = useState<string | null>(null);
 
   const handleBook = () => {
-    window.location.href = "https://www.clockwisemd.com/hospitals/15645/visits/new";
+    window.location.href = "https://app.clientforge-ai.com/spatium-book";
   };
 
   const handleCall = () => {

@@ -114,7 +114,11 @@ export const ContactPage: React.FC = () => {
                     className="flex-1 text-white font-semibold"
                     style={{ background: "linear-gradient(135deg, #007045 0%, #26a069 100%)" }}
                   >
-                    <a href="https://www.clockwisemd.com/visit/15645">
+                    <a
+                      href="https://app.clientforge-ai.com/spatium-book"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Book Appointment
                     </a>
                   </Button>

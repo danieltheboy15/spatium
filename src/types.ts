@@ -32,7 +32,7 @@ export const CLINIC_INFO = {
   email: "Hello@SpatiumUrgentCare.com",
   urgentCareHours: "Monday – Friday: 10:00 AM - 7:00 PM",
   weekendHours: "Saturday & Sunday: Closed",
-  bookingUrl: "https://www.clockwisemd.com/visit/15645",
+  bookingUrl: "https://app.clientforge-ai.com/spatium-book",
   wellnessBookingUrl: "https://spatiumurgentcareandwellness.glossgenius.com/",
   mapsUrl: "https://www.google.com/maps/dir/?api=1&destination=3595+Canton+Rd+Suite+316+Marietta+GA+30066",
   facebookUrl: "https://www.facebook.com/profile.php?id=61553189734008",

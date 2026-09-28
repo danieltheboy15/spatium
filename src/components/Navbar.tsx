@@ -81,7 +81,7 @@ export const Navbar: React.FC = () => {
               className="text-white font-semibold px-6 rounded-md hover:opacity-90"
               style={{ background: "#007045" }}
             >
-              <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+              <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
             </Button>
           </div>
         </div>
@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
                     className="text-white font-semibold w-full"
                     style={{ background: "#007045" }}
                   >
-                    <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+                    <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
                   </Button>
                 </div>
               </nav>

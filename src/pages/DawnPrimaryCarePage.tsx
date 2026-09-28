@@ -196,7 +196,7 @@ export const DawnPrimaryCarePage: React.FC = () => {
                     background: "linear-gradient(135deg, #007045 0%, #26a069 100%)",
                   }}
                 >
-                  <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+                  <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
                 </Button>
               </div>
             </div>
@@ -324,7 +324,7 @@ export const DawnPrimaryCarePage: React.FC = () => {
                 background: "linear-gradient(135deg, #007045 0%, #26a069 100%)",
               }}
             >
-              <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+              <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
             </Button>
           </div>
         </div>
@@ -376,7 +376,7 @@ export const DawnPrimaryCarePage: React.FC = () => {
                 background: "linear-gradient(135deg, #007045 0%, #26a069 100%)",
               }}
             >
-              <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+              <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
             </Button>
           </div>
         </div>
@@ -419,7 +419,7 @@ export const DawnPrimaryCarePage: React.FC = () => {
                     background: "linear-gradient(135deg, #007045 0%, #26a069 100%)",
                   }}
                 >
-                  <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+                  <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
                 </Button>
               </div>
             </div>
@@ -565,7 +565,7 @@ export const DawnPrimaryCarePage: React.FC = () => {
                     background: "linear-gradient(135deg, #007045 0%, #26a069 100%)",
                   }}
                 >
-                  <a href="https://www.clockwisemd.com/visit/15645">Book Appointment</a>
+                  <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">Book Appointment</a>
                 </Button>
               </div>
             </div>
