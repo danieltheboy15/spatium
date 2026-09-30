@@ -5,7 +5,6 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { MobileQuickBar } from "./components/MobileQuickBar";
-import { LiveChatWidget } from "./components/LiveChatWidget";
 import { QuickSearchModal } from "./components/QuickSearchModal";
 
 import { HomePage } from "./pages/HomePage";
@@ -41,9 +40,6 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
-
-        {/* Global Floating Live Chat Widget */}
-        <LiveChatWidget />
 
         {/* Global Quick Search Modal (⌘K) */}
         <QuickSearchModal
