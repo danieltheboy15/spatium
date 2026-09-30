@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { TopBanner } from "./components/TopBanner";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { MobileQuickBar } from "./components/MobileQuickBar";
+import { LiveChatWidget } from "./components/LiveChatWidget";
+import { QuickSearchModal } from "./components/QuickSearchModal";
 
 import { HomePage } from "./pages/HomePage";
 import { BodySculptingPage } from "./pages/BodySculptingPage";
@@ -16,11 +19,13 @@ import { ContactPage } from "./pages/ContactPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 export default function App() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
+      <div className="flex flex-col min-h-screen relative pb-16 md:pb-0">
+        <Navbar onOpenSearch={() => setIsSearchOpen(true)} />
         <TopBanner />
         <main className="flex-1">
           <Routes>
@@ -36,6 +41,18 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+
+        {/* Global Floating Live Chat Widget */}
+        <LiveChatWidget />
+
+        {/* Global Quick Search Modal (⌘K) */}
+        <QuickSearchModal
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+        />
+
+        {/* Mobile Quick Action Sticky Bar */}
+        <MobileQuickBar />
       </div>
     </BrowserRouter>
   );
