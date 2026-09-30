@@ -160,19 +160,9 @@ export const Footer: React.FC = () => {
             Disclaimer: The information on this website is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
           </p>
           <p className="text-sm opacity-50">
-            © 2025 Spatium Urgent Care. All rights reserved.
+            © 2026 Spatium Urgent Care. All rights reserved.
           </p>
-          <p className="text-sm opacity-50 mt-2">
-            Made with ❤️ by{" "}
-            <a
-              href="https://eztransition.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:opacity-100 transition-opacity"
-            >
-              EZtransition
-            </a>
-          </p>
+          
         </div>
       </div>
     </>
