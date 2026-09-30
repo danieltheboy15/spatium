@@ -28,6 +28,7 @@
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
     font-family: 'Inter', sans-serif;
+    transition: filter 0.25s ease-in-out;
   }
   
   body {
@@ -59,4 +60,17 @@
 
 .shadow-primary {
   box-shadow: 0 10px 30px -5px rgba(0, 112, 69, 0.3);
+}
+
+/* Light & Air / Dark Mode Filter */
+html.dark {
+  filter: invert(92%) hue-rotate(180deg);
+  background-color: #0f172a;
+}
+
+html.dark img,
+html.dark video,
+html.dark iframe,
+html.dark [data-no-invert] {
+  filter: invert(100%) hue-rotate(180deg);
 }

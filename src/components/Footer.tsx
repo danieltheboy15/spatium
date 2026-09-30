@@ -2,16 +2,19 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
 
+// Cobb Chamber logo from bundle.js
+const cobbChamberLogo = "data:image/png;base64,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";
+
 export const Footer: React.FC = () => {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.rapidscansecure.com/siteseal/siteseal.js?code=64,B611298C08C2616CA49D78A4E997AFB068EAFF76";
-    script.type = "text/javascript";
-    script.async = true;
-    document.body.appendChild(script);
+    const e = document.createElement("script");
+    e.src = "https://www.rapidscansecure.com/siteseal/siteseal.js?code=64,B611298C08C2616CA49D78A4E997AFB068EAFF76";
+    e.type = "text/javascript";
+    e.async = true;
+    document.body.appendChild(e);
     return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+      if (document.body.contains(e)) {
+        document.body.removeChild(e);
       }
     };
   }, []);
@@ -21,15 +24,12 @@ export const Footer: React.FC = () => {
       <footer className="bg-background text-foreground py-16 border-t border-border">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            {/* Brand */}
             <div>
-              <Link to="/">
-                <img
-                  src="/assets/spatium-logo-Bqb6jNew.png"
-                  alt="Spatium Urgent Care"
-                  className="h-12 w-auto mb-6 object-contain"
-                />
-              </Link>
+              <img
+                src="/assets/spatium-logo-Bqb6jNew.png"
+                alt="Spatium Urgent Care"
+                className="h-12 w-auto mb-6 object-contain"
+              />
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 Providing high-quality, affordable, and convenient urgent care and primary care services to the Marietta community.
               </p>
@@ -59,7 +59,6 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
             <div>
               <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               <ul className="space-y-2">
@@ -106,7 +105,6 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Contact Us */}
             <div>
               <h3 className="text-lg font-bold mb-4">Contact Us</h3>
               <ul className="space-y-3">
@@ -138,7 +136,6 @@ export const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Hours of Operation */}
             <div>
               <h3 className="text-lg font-bold mb-4">Hours of Operation</h3>
               <p className="text-sm text-muted-foreground mb-6">
@@ -147,7 +144,7 @@ export const Footer: React.FC = () => {
                 Saturday and Sunday: Closed
               </p>
               <img
-                src="/assets/cobb-chamber.png"
+                src={cobbChamberLogo}
                 alt="Cobb Chamber of Commerce - Proud Member"
                 className="h-24 w-auto object-contain mb-4"
               />
@@ -157,13 +154,25 @@ export const Footer: React.FC = () => {
         </div>
       </footer>
 
-      {/* Bottom Disclaimer & Copyright */}
       <div className="bg-[#1a1a1a] text-white py-6">
         <div className="container mx-auto px-6 text-center">
           <p className="text-sm opacity-75 mb-4">
             Disclaimer: The information on this website is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
           </p>
-          <p className="text-sm opacity-50">© 2025 Spatium Urgent Care. All rights reserved.</p>
+          <p className="text-sm opacity-50">
+            © 2025 Spatium Urgent Care. All rights reserved.
+          </p>
+          <p className="text-sm opacity-50 mt-2">
+            Made with ❤️ by{" "}
+            <a
+              href="https://eztransition.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:opacity-100 transition-opacity"
+            >
+              EZtransition
+            </a>
+          </p>
         </div>
       </div>
     </>

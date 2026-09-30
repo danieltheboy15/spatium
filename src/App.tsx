@@ -5,7 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { MobileQuickBar } from "./components/MobileQuickBar";
-import { QuickSearchModal } from "./components/QuickSearchModal";
+import { SendToPhoneModal } from "./components/SendToPhoneModal";
 
 import { HomePage } from "./pages/HomePage";
 import { BodySculptingPage } from "./pages/BodySculptingPage";
@@ -18,13 +18,13 @@ import { ContactPage } from "./pages/ContactPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
 export default function App() {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSendToPhoneOpen, setIsSendToPhoneOpen] = useState(false);
 
   return (
     <BrowserRouter>
       <ScrollToTop />
       <div className="flex flex-col min-h-screen relative pb-16 md:pb-0">
-        <Navbar onOpenSearch={() => setIsSearchOpen(true)} />
+        <Navbar onOpenSendToPhone={() => setIsSendToPhoneOpen(true)} />
         <TopBanner />
         <main className="flex-1">
           <Routes>
@@ -41,10 +41,10 @@ export default function App() {
         </main>
         <Footer />
 
-        {/* Global Quick Search Modal (⌘K) */}
-        <QuickSearchModal
-          isOpen={isSearchOpen}
-          onClose={() => setIsSearchOpen(false)}
+        {/* Send Clinic Info & GPS to Mobile Phone Modal */}
+        <SendToPhoneModal
+          isOpen={isSendToPhoneOpen}
+          onClose={() => setIsSendToPhoneOpen(false)}
         />
 
         {/* Mobile Quick Action Sticky Bar */}

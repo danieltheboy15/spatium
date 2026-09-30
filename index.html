@@ -17,6 +17,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display&family=Slabo+27px&family=Lato&family=Raleway&family=Montserrat&family=Oswald&family=Poppins&family=Source+Sans+Pro&family=PT+Sans&family=Open+Sans&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        var _origConsoleError = console.error;
+        var _origConsoleWarn = console.warn;
+        
+        console.error = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            var a = arguments[i];
+            if (typeof a === 'string' && (a.indexOf('Tawk') !== -1 || a.indexOf('tawk') !== -1)) {
+              return;
+            }
+          }
+          return _origConsoleError.apply(console, arguments);
+        };
+
+        console.warn = function() {
+          for (var i = 0; i < arguments.length; i++) {
+            var a = arguments[i];
+            if (typeof a === 'string' && (a.indexOf('Tawk') !== -1 || a.indexOf('tawk') !== -1)) {
+              return;
+            }
+          }
+          return _origConsoleWarn.apply(console, arguments);
+        };
+
+        window.addEventListener('error', function(event) {
+          if (event && (
+            (event.message && (event.message.indexOf('Tawk') !== -1 || event.message.indexOf('tawk') !== -1)) ||
+            (event.filename && event.filename.indexOf('tawk.to') !== -1)
+          )) {
+            event.preventDefault();
+            event.stopPropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
   </head>
   <body class="bg-background text-foreground antialiased selection:bg-emerald-600 selection:text-white">
     <div id="root"></div>
@@ -36,4 +73,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

@@ -1,15 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, Phone, Calendar } from "lucide-react";
+import {
+  Menu,
+  X,
+  Phone,
+  Calendar,
+  QrCode,
+  Sun,
+  Moon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 
 interface NavbarProps {
-  onOpenSearch?: () => void;
+  onOpenSendToPhone?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenSendToPhone }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem("spatium_theme") === "dark";
+    } catch {
+      return false;
+    }
+  });
+
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -19,6 +35,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Sync theme with document.documentElement and localStorage
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+    try {
+      localStorage.setItem("spatium_theme", isDark ? "dark" : "light");
+    } catch {
+      // Ignore
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => !prev);
+  };
 
   // Close menu on route navigation
   useEffect(() => {
@@ -36,11 +71,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-3.5 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 px-4 sm:px-6 py-3.5 transition-all duration-300 ${
           isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-white/80 backdrop-blur-xs"
         }`}
       >
-        <div className="container mx-auto flex justify-between items-center gap-4 lg:gap-8">
+        <div className="container mx-auto flex justify-between items-center gap-3 lg:gap-6">
           {/* Brand Logo */}
           <Link to="/" className="shrink-0 flex items-center">
             <img
@@ -73,36 +108,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             })}
           </nav>
 
-          {/* Action buttons & Search */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Quick Search Shortcut */}
-            {onOpenSearch && (
+          {/* Action buttons & Header Controls */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            {/* Small QR Code Icon Button on Desktop Header */}
+            {onOpenSendToPhone && (
               <button
                 type="button"
-                onClick={onOpenSearch}
-                aria-label="Search treatments and symptoms"
-                className="flex items-center gap-2 px-2.5 sm:px-3 py-2 text-xs text-slate-500 hover:text-slate-800 bg-slate-100/80 hover:bg-slate-200/80 rounded-lg transition-colors cursor-pointer border border-slate-200/60"
+                onClick={onOpenSendToPhone}
+                title="Send to Phone (QR Code)"
+                aria-label="Send to Phone (QR Code)"
+                className="hidden xl:flex items-center justify-center w-9 h-9 text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 border border-slate-200/80 rounded-lg transition-colors cursor-pointer"
               >
-                <Search className="w-3.5 h-3.5 text-slate-500" />
-                <span className="hidden sm:inline font-medium">Search</span>
-                <kbd className="hidden md:inline text-[10px] px-1 py-0.2 bg-white rounded border border-slate-300 font-mono text-slate-500">
-                  ⌘K
-                </kbd>
+                <QrCode className="w-4 h-4" />
               </button>
             )}
 
+            {/* Light Mode / Air Mode Theme Toggle - visible on BOTH Desktop & Mobile Header */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              title={isDark ? "Switch to Light Mode" : "Switch to Air / Dark Mode"}
+              aria-label={isDark ? "Switch to Light Mode" : "Switch to Air / Dark Mode"}
+              className="flex items-center justify-center w-9 h-9 text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 border border-slate-200/80 rounded-lg transition-colors cursor-pointer"
+            >
+              {isDark ? (
+                <Sun className="w-4 h-4 text-amber-500" />
+              ) : (
+                <Moon className="w-4 h-4 text-slate-700" />
+              )}
+            </button>
+
             {/* Desktop Call & Book buttons */}
-            <div className="hidden xl:flex items-center gap-2.5">
+            <div className="hidden xl:flex items-center gap-2">
               <Button
                 variant="outline"
                 asChild
-                className="border-2 border-primary text-primary hover:bg-primary/10 bg-white font-semibold px-5 rounded-md text-sm"
+                className="border-2 border-primary text-primary hover:bg-primary/10 bg-white font-semibold px-4 rounded-md text-xs sm:text-sm"
               >
                 <a href="tel:678-932-2121">Call 678-932-2121</a>
               </Button>
               <Button
                 asChild
-                className="text-white font-semibold px-5 rounded-md hover:opacity-90 text-sm shadow-xs"
+                className="text-white font-semibold px-4 rounded-md hover:opacity-90 text-xs sm:text-sm shadow-xs"
                 style={{ background: "#007045" }}
               >
                 <a href="https://app.clientforge-ai.com/spatium-book" target="_blank" rel="noopener noreferrer">
@@ -115,7 +162,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
             <button
               type="button"
               onClick={() => setIsMobileOpen(true)}
-              className="xl:hidden p-2 rounded-lg text-foreground hover:bg-slate-100 transition-colors"
+              className="xl:hidden p-2 rounded-lg text-foreground hover:bg-slate-100 transition-colors cursor-pointer"
               aria-label="Open navigation menu"
             >
               <Menu className="h-6 w-6 text-foreground" />
@@ -145,32 +192,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                 <button
                   type="button"
                   onClick={() => setIsMobileOpen(false)}
-                  className="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100"
+                  className="p-2 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-slate-100 cursor-pointer"
                   aria-label="Close navigation menu"
                 >
                   <X className="h-6 w-6" />
                 </button>
               </div>
 
-              {/* Mobile Search Button */}
-              {onOpenSearch && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsMobileOpen(false);
-                    onOpenSearch();
-                  }}
-                  className="w-full mt-4 flex items-center justify-between px-3.5 py-2.5 bg-slate-100 text-slate-700 rounded-xl text-xs font-semibold hover:bg-slate-200 transition-colors"
-                >
-                  <span className="flex items-center gap-2">
-                    <Search className="w-4 h-4 text-slate-500" />
-                    <span>Search symptoms & treatments</span>
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-mono">⌘K</span>
-                </button>
-              )}
-
-              <nav className="flex flex-col gap-4 mt-6">
+              {/* Clean Navigation Links */}
+              <nav className="flex flex-col gap-3.5 mt-6">
                 {navLinks.map((link) => {
                   const isActive = pathname === link.path;
                   return (
@@ -178,7 +208,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                       key={link.path}
                       to={link.path}
                       onClick={() => setIsMobileOpen(false)}
-                      className={`transition-colors text-base py-1.5 px-2 rounded-lg ${
+                      className={`transition-colors text-base py-2 px-3 rounded-lg ${
                         isActive
                           ? "bg-emerald-50 text-primary font-bold"
                           : "text-foreground hover:text-primary hover:bg-slate-50 font-normal"
@@ -188,31 +218,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
                     </Link>
                   );
                 })}
-
-                {/* Additional quick links for complete mobile accessibility */}
-                <div className="pt-3 border-t border-slate-100 space-y-2 text-sm">
-                  <Link
-                    to="/covid-19-testing"
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block py-1 px-2 text-slate-600 hover:text-primary"
-                  >
-                    COVID-19 & Rapid Lab Testing
-                  </Link>
-                  <Link
-                    to="/financing"
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block py-1 px-2 text-slate-600 hover:text-primary"
-                  >
-                    Cherry Patient Financing (0% APR)
-                  </Link>
-                  <Link
-                    to="/contact"
-                    onClick={() => setIsMobileOpen(false)}
-                    className="block py-1 px-2 text-slate-600 hover:text-primary"
-                  >
-                    Contact & Directions
-                  </Link>
-                </div>
 
                 <div className="flex flex-col gap-2.5 mt-6">
                   <Button
@@ -244,10 +249,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenSearch }) => {
               </nav>
             </div>
 
-            <div className="pt-6 border-t border-border mt-6 text-xs text-muted-foreground text-center">
-              <p className="font-semibold text-foreground mb-1">Spatium Urgent Care</p>
+            <div className="pt-5 border-t border-border mt-6 text-xs text-muted-foreground text-center">
+              <p className="font-semibold text-foreground mb-0.5">Spatium Urgent Care</p>
               <p>3595 Canton Rd, Suite 316, Marietta, GA</p>
-              <p className="mt-1 font-medium text-emerald-800">Mon–Fri: 10am–7pm | Sat–Sun: Closed</p>
+              <p className="mt-0.5 font-medium text-emerald-800">Mon–Fri: 10am–7pm | Sat–Sun: Closed</p>
             </div>
           </div>
         </div>
