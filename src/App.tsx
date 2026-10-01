@@ -6,6 +6,7 @@ import { Footer } from "./components/Footer";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { MobileQuickBar } from "./components/MobileQuickBar";
 import { SendToPhoneModal } from "./components/SendToPhoneModal";
+import { UpdatesPopupModal } from "./components/UpdatesPopupModal";
 
 import { HomePage } from "./pages/HomePage";
 import { BodySculptingPage } from "./pages/BodySculptingPage";
@@ -46,6 +47,9 @@ export default function App() {
           isOpen={isSendToPhoneOpen}
           onClose={() => setIsSendToPhoneOpen(false)}
         />
+
+        {/* Welcome Updates Popup (Appears 7 seconds after loading the home page, sends to fatunsed@gmail.com) */}
+        <UpdatesPopupModal delayMs={7000} targetEmail="fatunsed@gmail.com" />
 
         {/* Mobile Quick Action Sticky Bar */}
         <MobileQuickBar />
