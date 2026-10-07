@@ -48,8 +48,8 @@ export default function App() {
           onClose={() => setIsSendToPhoneOpen(false)}
         />
 
-        {/* Welcome Updates Popup (Appears 7 seconds after loading the home page, sends to fatunsed@gmail.com) */}
-        <UpdatesPopupModal delayMs={7000} targetEmail="fatunsed@gmail.com" />
+        {/* Welcome Updates Popup (Appears 7 seconds after loading the home page, sends to Hello@SpatiumUrgentCare.com) */}
+        <UpdatesPopupModal delayMs={7000} targetEmail="Hello@SpatiumUrgentCare.com" />
 
         {/* Mobile Quick Action Sticky Bar */}
         <MobileQuickBar />

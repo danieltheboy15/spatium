@@ -18,7 +18,7 @@ interface UpdatesPopupModalProps {
 
 export const UpdatesPopupModal: React.FC<UpdatesPopupModalProps> = ({
   delayMs = 7000,
-  targetEmail = "fatunsed@gmail.com",
+  targetEmail = "Hello@SpatiumUrgentCare.com",
 }) => {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -157,7 +157,7 @@ export const UpdatesPopupModal: React.FC<UpdatesPopupModalProps> = ({
 
     let delivered = false;
 
-    // 2. Primary Delivery via ShipMyForm (Direct inbox delivery to fatunsed@gmail.com)
+    // 2. Primary Delivery via ShipMyForm (Direct inbox delivery to Hello@SpatiumUrgentCare.com)
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 7000);
