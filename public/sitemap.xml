@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 1. Home Page: Spatium Urgent Care & Wellness in Marietta, GA -->
+  <url>
+    <loc>https://spatiumurgentcare.com/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 2. Dawn Primary Care: $99/mo Unlimited Membership -->
+  <url>
+    <loc>https://spatiumurgentcare.com/dawn-primary-care-service</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Body Sculpting: EMSCULPT NEO Fat Reduction & Muscle Building -->
+  <url>
+    <loc>https://spatiumurgentcare.com/body-sculpting</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. Medically Supervised Weight Loss Program (Semaglutide / Tirzepatide) -->
+  <url>
+    <loc>https://spatiumurgentcare.com/weight-loss-program-spatium</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 5. Medical Aesthetics: Botox, Microneedling & Chemical Peels -->
+  <url>
+    <loc>https://spatiumurgentcare.com/aesthetics</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 6. Contact Us: Marietta Location, Clinic Hours & Online Booking -->
+  <url>
+    <loc>https://spatiumurgentcare.com/contact</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 7. Healthcare Financing: Cherry 0% APR Payment Plans -->
+  <url>
+    <loc>https://spatiumurgentcare.com/financing</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 8. COVID-19 & Viral Diagnostic Testing -->
+  <url>
+    <loc>https://spatiumurgentcare.com/covid-19-testing</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

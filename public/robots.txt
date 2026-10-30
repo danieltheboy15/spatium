@@ -1,0 +1,6 @@
+# Robots.txt for Spatium Urgent Care & Wellness
+User-agent: *
+Allow: /
+
+# XML Sitemap
+Sitemap: https://spatiumurgentcare.com/sitemap.xml
